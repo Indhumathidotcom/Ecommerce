@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyShop - Cart</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f2f2f2, #e0f7fa);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+        background-color: #00acc1;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+    .cart {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display:flex;
+      min-height: 77vh;
+      flex-direction:column;
+      justify-content:flex-start;
+    }
+    .cart-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 15px 0;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      background-color: #fafafa;
+      transition: transform 0.2s;
+    }
+    .cart-item:hover {
+      transform: scale(1.02);
+    }
+    .cart-item img {
+      width: 120px;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+    .cart-item h3 {
+      margin: 0 0 10px;
+      color: #004d40;
+    }
+    .cart-item p {
+      margin: 5px 0;
+      color: #333;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #00796b;
+      color: white;
+      padding: 10px 20px;
+      margin: 10px 5px 0 0;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+      background-color: #004d40;
+      transform: translateY(-2px);
+    }
+     footer {
+      text-align: center;
+      padding: 12px;
+      background-color: #00acc1;
+      color: white;
+      margin-top: 30px;
+    } 
+    
+    strong {
+      color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+        <h1>MyShop 😊</h1>
+      </nav>
+      <nav>
+        <a href="index.html">Home🏠</a>
+        <a href="shop.html">Shop🛒</a>
+        <a href="cart.html">Cart📗</a>
+      </nav>
+  </header>
+
+  <section class="cart">
+    <h2>🛒 Order Summary</h2>
+    <div id="cart-items"></div>
+    <p style="text-align:center;">Thank you for shopping with us! 💖</p>
+    <div style="text-align:center;">
+      <a href="shop.html" class="btn">Continue Shopping</a>
+      <button onclick="clearCart()" class="btn">Clear Cart</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MyShop. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartItemsDiv = document.getElementById('cart-items');
+
+    if (cart.length === 0) {
+      cartItemsDiv.innerHTML = "<p style='text-align:center;'>No items in your cart yet.</p>";
+    } else {
+      let content = '';
+      let total = 0;
+
+      cart.forEach(function(item) {
+        content += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div>
+              <h3>${item.name}</h3>
+              <p>Price: $${item.price.toFixed(2)}</p>
+            </div>
+          </div>
+        `;
+        total += item.price;
+      });
+
+      content += `<p style="text-align:center; font-size: 18px;"><strong>Total: $${total.toFixed(2)}</strong></p>`;
+      cartItemsDiv.innerHTML = content;
+    }
+
+    function clearCart() {
+      localStorage.removeItem('cart');
+      location.reload();
+    }
+  </script>
+</body>
+</html>

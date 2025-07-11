@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MyShop - Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #f2f2f2, #e0f7fa);
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #00acc1;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      nav a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 30px;
+        margin: 0;
+      }
+      .product-card {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+      .product-card:hover {
+        transform: scale(1.05);
+      }
+      .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .product-card h3 {
+        color: #00796b;
+        margin: 10px 0 5px;
+      }
+      .product-card p {
+        margin: 5px 0;
+        color: #555;
+      }
+      .product-card .description {
+        font-size: 14px;
+        color: #666;
+        margin: 8px 0;
+      }
+      .btn {
+        display: inline-block;
+        background-color: #00796b;
+        color: white;
+        padding: 8px 15px;
+        margin: 5px 5px 0 0;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+      .btn:hover {
+        background-color: #004d40;
+        transform: translateY(-2px);
+      }
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #00acc1;
+        color: white;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>MyShop 😊</h1>
+      </nav>
+      <nav>
+        <a href="index.html">Home🏠</a>
+        <a href="shop.html">Shop🛒</a>
+        <a href="cart.html">Cart📗</a>
+      </nav>
+    </header>
+
+    <section class="products">
+      <div class="product-card">
+        <img src="imge bag.webp" alt="Bag" />
+        <h3>Stylish Bag</h3>
+        <p>$350.99</p>
+        <p class="description">
+          A trendy bag perfect for school, travel, or casual use. Lightweight
+          and spacious.
+        </p>
+        <a href="bag-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Stylish Bag', 350.99, 'imge bag.webp')"
+        >
+          Order
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="fancy dress.webp" alt="Dress" />
+        <h3>Fancy Dress</h3>
+        <p>$200.99</p>
+        <p class="description">
+          Elegant and beautiful dress perfect for parties and special occasions.
+        </p>
+        <a href="dress-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Fancy Dress', 200.99, 'fancy dress.webp')"
+        >
+          Order
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="hair clips.webp" alt="Clips" />
+        <h3>Variety of Clips</h3>
+        <p>$20.99</p>
+        <p class="description">
+          Colorful hair clips set to match any outfit and style.
+        </p>
+        <a href="clips-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Variety of Clips', 20.99, 'hair clips.webp')"
+        >
+          Order
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="pen.jpg" alt="Stationery" />
+        <h3>Stationery Items</h3>
+        <p>$12.99</p>
+        <p class="description">
+          Effective and essential stationery items for daily school or office
+          use.
+        </p>
+        <a href="stationery-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Stationery Items', 12.99, 'pen.jpg')"
+        >
+          Order
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="elec.jpg" alt="Cycle" />
+        <h3>Electronics Items</h3>
+        <p>$5000.99</p>
+        <p class="description">
+          High-quality electronic gadgets to make your life smarter and easier.
+        </p>
+        <a href="electronics-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Electronics Items', 5000.99, 'cycle.webp')"
+        >
+          Order
+        </button>
+      </div>
+
+      <div class="product-card">
+        <img src="shoes.webp" alt="Water Bottle" />
+        <h3>Elegant shoes</h3>
+        <p>$550.99</p>
+        <p class="description">
+          Stylish and leak-proof water bottles to keep you hydrated on the go.
+        </p>
+        <a href="shoes-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Water Bottles', 200.99, 'watter.webp')"
+        >
+          Order
+        </button>
+      </div>
+      <div class="product-card">
+        <img src="watter.webp" alt="Water Bottle" />
+        <h3>Water Bottles</h3>
+        <p>$200.99</p>
+        <p class="description">
+          Stylish and leak-proof water bottles to keep you hydrated on the go.
+        </p>
+        <a href="bottle-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Water Bottles', 200.99, 'watter.webp')"
+        >
+          Order
+        </button>
+      </div>
+      <div class="product-card">
+        <img src="watch.webp" alt="Water Bottle" />
+        <h3>Elegant Watches</h3>
+        <p>$250.99</p>
+        <p class="description">
+          Stylish and leak-proof water bottles to keep you hydrated on the go.
+        </p>
+        <a href="watch-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Water Bottles', 200.99, 'watter.webp')"
+        >
+          Order
+        </button>
+      </div>
+      <div class="product-card">
+        <img src="lunch bags.webp" alt="Water Bottle" />
+        <h3>Lunch Bag</h3>
+        <p>$450.99</p>
+        <p class="description">
+          Stylish and leak-proof water bottles to keep you hydrated on the go.
+        </p>
+        <a href="lunchbag-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Water Bottles', 200.99, 'watter.webp')"
+        >
+          Order
+        </button>
+      </div>
+      <div class="product-card">
+        <img src="school.webp" alt="Water Bottle" />
+        <h3>Branderd Bag</h3>
+        <p>$450.99</p>
+        <p class="description">
+          Stylish and leak-proof water bottles to keep you hydrated on the go.
+        </p>
+        <a href="brandedbag-detail.html" class="btn">View</a>
+        <button
+          class="btn"
+          onclick="addToCart('Water Bottles', 200.99, 'watter.webp')"
+        >
+          Order
+        </button>
+      </div>
+
+      <!-- Add more products similarly -->
+    </section>
+
+    <footer>
+      <p>&copy; 2025 MyShop. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function addToCart(name, price, image) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ name: name, price: price, image: image });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        window.location.href = "cart.html";
+      }
+    </script>
+  </body>
+</html>
